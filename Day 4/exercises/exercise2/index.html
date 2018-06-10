@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Callbacks and Async Programming</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <button id="click-me">Click me!!</button>
+
+  <script>
+    window.button = document.querySelector("#click-me");
+
+    function onClick(element, cb) {
+      element.addEventListener('click', cb);
+    }
+  </script>
+  <!--
+    First, run the server.js file using the following command from the terminal :
+    node server.js
+  
+    If you have nodemon installed, run the following command:
+    nodemon server.js
+  -->
+   <!-- TODO: include a script tag here and write the solution to exercise 2 -->
+   <!-- 
+    onClick is a function that you can use. It takes a html element as it's first argument
+    and a function as it's second argument.
+
+    For convenience, I have created a button on the page. It is saved as the variable
+    'button' on the global scope. Use this button as the first argument to onClick.
+   -->
+</body>
+
+</html>
