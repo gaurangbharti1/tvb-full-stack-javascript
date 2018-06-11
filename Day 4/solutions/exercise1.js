@@ -7,11 +7,25 @@
  */
 
 // ES5 syntax
-setInterval(function() {
+let token = setInterval(function() {
   console.log("I'm going to run every second");
 }, 1000);
 
+setTimeout(function() {
+  clearInterval(token);
+}, 5000);
+
 // ES6 syntax
-setInterval(() => {
-  console.log("I'm going to run every second");
-}, 1000);
+// setInterval(() => {
+//   console.log("I'm going to run every second");
+// }, 1000);
+
+// let token = setInterval(function () {
+//   console.log('called')
+// }, 1000);
+
+// let timeoutToken = setTimeout(function () {
+//   clearInterval(token);
+// }, 5000)
+
+// clearTimeout(timeoutToken);
