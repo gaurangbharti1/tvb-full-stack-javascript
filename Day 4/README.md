@@ -1,5 +1,5 @@
 ### Usage
-  - Instead of cloning the repository, make a copy of this repository in your own GitHub profile by pressing the `fork` button.
+  - Instead of cloning the repository, make a copy of this repository in your own GitHub profile by pressing the `fork` button at the top of this page.
   - Pressing the `fork` button "copies" this repository into your GitHub profile.
   - Once you have forked this repository, go to **your** GitHub profile and clone the repository to your computer.
   - Doing this allows you to solve all assignments and exercies and push your code to GitHub.
