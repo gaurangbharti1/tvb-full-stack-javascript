@@ -20,8 +20,11 @@ let numbers = [1, 2, 3, 4, 5];
 let transformedNumbers = numbers.map(function(number) {
   /**
    * Array.prototype.map loops over the numbers array one item at a time.
-   * On every loop through the array, it gives the
-   * number at the current index.
+   * On every iteration, it gives the item at that index. This is similar
+   * to writing a `for` loop over the array and returning numbers[i].
+   *
+   * On the first iteration, the number variable will be 1.
+   * On the second iteration, the number variable will be 2 and so on...
    *
    */
   return number * 2;
@@ -30,14 +33,13 @@ let transformedNumbers = numbers.map(function(number) {
 /**
  * When we run this, each number in the array is multiplied by 2
  */
-console.log(transformedNumbers);
+console.log(transformedNumbers); // [2, 4, 6, 8, 10]
 
 /**
  * Let's look at another example.
  *
- * map is not just useful for working with numbers!
- * We can transform ANYTHING in an array. Let's take the
- * following example.
+ * Array.prototype.map is not useful for working with more than just numbers!
+ * We can transform ANYTHING in an array. Let's take the following example.
  */
 
 let cats = [
@@ -58,7 +60,7 @@ let cats = [
   },
 ];
 
-/** Let us transform this array of object
+/** Let us transform this array of objects
  * and return only the `name` and `breed`
  * of cats
  */
@@ -95,7 +97,7 @@ let transformedCats = cats.map(function(cat) {
  * Now let's get your hands dirty with some code!
  *
  * Transform the users collection below to get only
- * the name.
+ * the name of each user.
  */
 
 let users = [

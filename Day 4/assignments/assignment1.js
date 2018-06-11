@@ -1,5 +1,5 @@
 /**
- * 1. Write a program that logs to the console
+ * Write a program that logs to the console
  * 3 times. One of the logs should be delayed by
  * 3 seconds (or 3000ms).
  * 
