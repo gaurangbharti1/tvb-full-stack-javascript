@@ -1,5 +1,5 @@
 function printNameLater(message, timeout, cb) {
-  const id = setTimeout(() => {
+  const id = setTimeout(function () {
     cb(message);
   }, timeout);
 }

@@ -1,5 +1,5 @@
 console.log("one");
-setTimeout(() => {
+setTimeout(function() {
   console.log("two");
 }, 3000);
 console.log("three");
