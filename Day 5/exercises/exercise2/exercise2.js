@@ -1,0 +1,1 @@
+/** Make a GET request using the fetch API to get users from the https://randomuser.me/api */

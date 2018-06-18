@@ -1,7 +1,7 @@
 /**
  * Write a program that logs to the console
  * 3 times. One of the logs should be delayed by
- * 3 seconds (or 3000ms).
+ * 3 seconds (or 3000ms). Hint: use setTimeout
  * 
  * For example;
  * 
@@ -9,7 +9,7 @@
  * console.log('two');
  * console.log('three');
  * 
- * In the above example, all 'one', 'two' and 'three'
+ * In the above example, 'one', 'two' and 'three'
  * will get logged one after the other without any
  * delay.
  * 
