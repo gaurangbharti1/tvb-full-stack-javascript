@@ -2,8 +2,8 @@
  * Let us look at Array.prototype.forEach and
  * see how it works.
  *
- * In this assignment we'll go move from a simple
- * for loop to a custom forEach function called
+ * In this assignment we'll move from a simple
+ * `for` loop to a custom forEach function called
  * 'each'. This assignment is aimed at giving you
  * a better understanding of how .forEach works.
  */
