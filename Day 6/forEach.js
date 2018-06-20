@@ -37,7 +37,7 @@ let todos = [
   {
     id: 3,
     title: "Learn more awesome JS stuff!!",
-    completed: false
+    completed: false,
   },
 ];
 
@@ -52,7 +52,7 @@ console.log(todos);
  *
  * Let's convert these loops into
  * a method on the Array object so we don't have to
- * manually create a for loop, setting up variable i
+ * manually create a for loop, setting up variable `i`
  * to keep track of the index and so on...
  *
  * In the below section we create our own Array.prototype.each
@@ -61,7 +61,7 @@ console.log(todos);
 
 Array.prototype.each = function() {
   /** Notice below that we don't need to take an array as input from the function.
-   * Since we are creating a method on the Array object, `this` refers
+   * Since we are creating a method on the Array object, `this` refers to
    * the array of items that we want to iterate over.
    */
   for (let i = 0; i < this.length; i++) {
@@ -70,12 +70,11 @@ Array.prototype.each = function() {
 };
 
 /** Using our names array from above, we'll see that
- * calling .each on our array - names, prints
- * each item to the console.
+ * calling `names.each`, prints each item to the console.
  */
 names.each();
 
-/** Calling the .each method on our list of todos
+/** Calling the `.each` method on our list of todos
  * prints the todos to the console.
  */
 todos.each();
@@ -93,7 +92,7 @@ todos.each();
 
 Array.prototype.customisedEach = function(callback) {
   if (typeof callback !== "function") {
-    return;
+    return this;
   }
   /** As we have learned, callbacks are functions passed to
    * other functions. Since we want to allow the user
@@ -161,7 +160,7 @@ console.log(todo); // This prints the todo object provided above, but, it has no
  * called for each item in the loop. On line 112, we see `callback(this[i])`, where
  * `this[i]` represents the currently iterated item and our `markAsCompleted` function
  * accepts a todo item as it's argument. So, using our newTodos list from above,
- * `this[i]` = {
+ * `this[0]` = {
     id: 4,
     title: "Another thing to do",
     completed: false
@@ -173,12 +172,13 @@ console.log(todo); // This prints the todo object provided above, but, it has no
 newTodos.customisedEach(markAsCompleted);
 
 /**
- * Notice above that we are NOT doing the following:
+ * Notice to following:
  *
- * `newTodos.customisedEach(markAsCompleted())`.
+ * Correct way: `newTodos.customisedEach(markAsCompleted)`
+ * Incorrect way: `newTodos.customisedEach(markAsCompleted())`.
  *
- * When we want to pass a function to another function, we should NOT call
- * the function. We only need to provide a reference to it.
+ * When we want to pass a function to another function as a reference
+ * and should NOT call the function.
  *
  * If we log the newTodos array now, we will see that all
  * items have been correctly marked as complete
@@ -186,7 +186,11 @@ newTodos.customisedEach(markAsCompleted);
 console.log(newTodos);
 
 /** We may also write the above as follows. This time let's mark all items as incomplete
- * by setting completed = false
+ * by setting completed = false.
+ *
+ * Here we pass an in-line function instead of defining it before-hand.
+ * This function is also called an in-line anonymous function and is
+ * equivalent to `markAsCompleted`.
  */
 newTodos.customisedEach(function(todo) {
   todo.completed = false;
