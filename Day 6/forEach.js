@@ -36,7 +36,8 @@ let todos = [
   },
   {
     id: 3,
-    title: "",
+    title: "Learn more awesome JS stuff!!",
+    completed: false
   },
 ];
 
