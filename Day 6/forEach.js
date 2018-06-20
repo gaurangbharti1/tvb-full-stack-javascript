@@ -48,7 +48,7 @@ for (let i = 0; i < todos.length; i++) {
 console.log(todos);
 
 /** At the end of this loop, all items will be correctly
- * marked as completed.
+ * marked as completed = true.
  *
  * Let's convert these loops into
  * a method on the Array object so we don't have to
