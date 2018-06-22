@@ -40,7 +40,7 @@ ___
 ___
 
 * [ ] Move route handlers to controllers and reference relevant functions
-* [ ] Make use of `app.use()` to route request to controllers without manual mapping of functions
+* [ ] Make use of `app.use()` to route request to controllers without manual mapping to functions
 * [ ] Move to persistent data store.
   - Types - SQL & NoSQL databases.
 * [ ] Setup MongoDB on Ubuntu / Windows
