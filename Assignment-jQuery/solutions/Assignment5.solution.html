@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Live Counter - Inc and Dec</title>
+</head>
+
+<style>
+  body {
+    padding: 50px;
+    /** adds space between the browser edge and content */
+  }
+
+  ul {
+    list-style-type: none;
+    /* Removes bullet points from ul */
+  }
+
+  input {
+    height: 20px;
+    /** increase size of the input */
+    border-radius: 3px;
+    /** give the input rounded corners */
+  }
+</style>
+
+<body>
+
+  <div id="todo-input-box">
+    <input id="todo" placeholder="What needs to be done ?" />
+    <button id="add">Add</button>
+
+    <hr />
+  </div>
+
+  <h1>My Todos:</h1>
+  <ul id="todo-list">
+    <li>
+      <input type="checkbox"> Use jQuery to add todo items
+    </li>
+  </ul>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    /**
+     * Objective: Use javascript to add todos
+     * 
+     * - Use jquery to listen for the appropriate event on the input#todo
+     * - When the user cliks button#add, add the text entered as a new todo item to ul#todo-list
+     * - After the todo has been added, clear the input box so that the text entered is not present anymore.
+     * 
+     * Example: If the button#increment is clicked 5 times and button#decrement is clicked 3 times,
+     * div#counter should have the value 2
+     * */
+    let todoList = $("#todo-list");
+    let todoInput = $("#todo");
+    let addBtn = $("#add");
+
+    addBtn.on("click", function (event) {
+      if (todoInput.val().trim() === "") {
+        return;
+      }
+
+      // build the todo item html
+      let todoItem = `
+        <li>
+          <input type="checkbox" /> ${todoInput.val()}
+        </li>
+      `;
+
+      // add the html to the list of todos
+      todoList.append(todoItem);
+
+      // finally, clear out the input
+      todoInput.val("");
+    });
+  </script>
+</body>
+
+</html>

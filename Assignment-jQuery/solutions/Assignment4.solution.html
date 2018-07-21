@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Live Counter - Inc and Dec</title>
+</head>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100vw;
+    /** make sure the body takes full width **/
+    height: 100vh;
+    /** make sure the body takes full height **/
+    justify-content: center;
+    /** center the box horizontally on the page **/
+    align-items: center;
+    /** center the box vertically on the page **/
+  }
+
+  #box {
+    width: 150px;
+    height: 150px;
+    background: pink;
+    border-radius: 3px;
+  }
+</style>
+
+<body>
+
+  <div id="box"></div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    /**
+     * Objective: Use javascript to change the size of the box
+     * 
+     * - Use jquery to listen for "mouseenter" on div#box
+     * - When the mouse hovers over the box, change it's size to 300x300 px
+     * - When the mouse is hovered outside the box, reset it's size to 150x150
+     * */
+
+    let box = $("#box");
+
+    box.on("mouseenter", function (event) {
+      /** `this` refers to the DOM element that was hovered over, ie, div#box.
+       * $(this) "converts" the div#box into a jQuery object.
+       * 
+       * This is the same as doing $("#box") again. However, there is slight difference.
+       * Doing $("#box") queries the DOM again, while doing $(this) does not.
+       * **/
+      $(this).width(300);
+      $(this).height(300);
+
+      /**
+       * The above code maybe rewritten as follows:
+       * 
+       * $(this).width(300).height(300);
+       * 
+       * When we call functions like this one after the other, it
+       * is called "method chaining".
+       * */
+    });
+
+    box.on("mouseleave", function (event) {
+      $(this).width(150).height(150);
+    });
+  </script>
+</body>
+
+</html>

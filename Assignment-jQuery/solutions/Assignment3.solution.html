@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Live Counter - Inc and Dec</title>
+</head>
+
+<body>
+
+  <div id="counter">0</div>
+
+  <button id="increment">+1</button>
+  <button id="decrement">-1</button>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    /**
+     * Objective: Use javascript to update a coutner on the page
+     * 
+     * - Use jquery to listen for clicks on button#increment & button#decrement
+     * - Every time button#increment is clicked, increment the count.
+     * - Every time button#decrement is clicked, decrement the count.
+     * 
+     * Example: If the button#increment is clicked 5 times and button#decrement is clicked 3 times,
+     * div#counter should have the value 2
+     * */
+
+
+    // hold a reference to the counter element so that we don't need to do $("#counter") everytime.
+    // This is good practice as querying the dom (ie, $("#counter")) is less performant. Storing
+    // the element reference in a variable helps reduce work and keeps our code performant.
+    let counter = $("#counter");
+    let count = counter.text();
+
+    $("#increment").on("click", function (event) {
+      count++;
+      counter.text(count);
+    });
+
+    $("#decrement").on("click", function (event) {
+      count--;
+      counter.text(count);
+    })
+  </script>
+</body>
+
+</html>

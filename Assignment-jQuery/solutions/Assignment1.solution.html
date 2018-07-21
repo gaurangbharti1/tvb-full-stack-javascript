@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Click Handlers</title>
+</head>
+
+<body>
+
+  <button id="clickme">Click Me!!</button>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    /**
+     * Objective: Write a click handler for a button.
+     * 
+     * - Create a button on the page
+     * - Use jquery to listen for clicks on that button
+     * - When the button is clicked, `console.log` the message 'Clicked'
+     **/
+
+    $('#clickme').on('click', function (event) {
+      console.log("Clicked");
+    });
+  </script>
+</body>
+
+</html>
