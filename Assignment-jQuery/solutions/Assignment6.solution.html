@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Live Counter - Inc and Dec</title>
+</head>
+
+<style>
+  body {
+    padding: 50px;
+    /** adds space between the browser edge and content */
+  }
+
+  ul {
+    list-style-type: none;
+    /* Removes bullet points from ul */
+  }
+
+  input {
+    height: 20px;
+    /** increase size of the input */
+    border-radius: 3px;
+    /** give the input rounded corners */
+  }
+</style>
+
+<body>
+
+  <div id="todo-input-box">
+    <input id="todo" placeholder="What needs to be done ?" />
+    <button id="add">Add</button>
+
+    <hr />
+  </div>
+
+  <h1>My Todos:</h1>
+  <ul id="todo-list">
+    <li>
+      <input type="checkbox"> Use jQuery to add todo items
+    </li>
+  </ul>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    /**
+     * Objective: Use ajax (XHR) to add todos to our todo app
+     * 
+     * - Start up the Todo app that we made.
+     * - Make a request to your todo app to fetch all the todos and show them on the page under ul#todo-list
+     * - When the user cliks button#add, save the item in the database using $.ajax()
+     * - The server must respond with the newly created Todo item along with the id that was generated.
+     * - After the todo has been added to the database, add it to the #todo-list and clear the
+     *   input box so that the text entered is not present anymore.
+     * */
+    $.ajax({
+      url: "http://localhost:3000/todos",
+      type: "GET",
+      success: function (response) {
+        let todos = response.todos;
+        todos.forEach(function (todo) {
+          $("#todo-list").append(`
+            <li id=${todo.id}>
+              <input type="checkbox" /> ${todo.title}
+            </li>
+          `);
+        });
+
+        // Note: The approach below is more performant as we only append to the
+        // DOM once, while the technique above updates to the DOM for every item
+        // in repsonse.todos; ie, if there are 10 items, we update the DOM 10 times.
+        
+        // In contrast, the implementation below updates the DOM only once as
+        // the HTML is built up using the `.map` function and stored in todosHtml variable.
+        // `console.log` the todosHtml variable and see for yourself.
+
+        // let todosHtml = response.todos.map(function (todo) {
+        //   return `
+        //     <li id=${todo.id}>
+        //       <input type="checkbox" /> ${todo.title}
+        //     </li>
+        //   `;
+        // });
+
+        // $("#todo-list").append(todosHtml);
+      }
+    });
+
+
+
+    let todoList = $("#todo-list");
+    let todoInput = $("#todo");
+    let addBtn = $("#add");
+
+    addBtn.on("click", function (event) {
+      if (todoInput.val().trim() === "") {
+        return;
+      }
+
+      let todoTitle = todoInput.val();
+
+      // You may also use $.post(url, options) -> check jQuery documentation
+      $.ajax({
+        url: "http://localhost:3000/todos",
+        type: "POST",
+        data: {
+          title: todoTitle
+        },
+        success: function (response) {
+          // build the todo item html
+          let todoItem = `
+            <li id="${response.todo.id}">
+              <input type="checkbox" /> ${todoTitle}
+            </li>
+          `;
+
+          // add the html to the list of todos
+          todoList.append(todoItem);
+
+          // finally, clear out the input
+          todoInput.val(""); 
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
